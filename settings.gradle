@@ -1,0 +1,4 @@
+rootProject.name='Covid19 Tracker'
+include ':app'
+include ':data'
+include ':domain'
