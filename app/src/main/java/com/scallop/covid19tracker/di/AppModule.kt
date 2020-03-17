@@ -12,9 +12,9 @@ import com.scallop.data.mappers.CovidEntityDataMapper
 import com.scallop.data.repository.CovidCacheImpl
 import com.scallop.data.repository.CovidRemoteImpl
 import com.scallop.data.repository.CovidRepositoryImpl
+import com.scallop.domain.repositories.CovidRepository
 import com.scallop.domain.usecases.GetCountriesUseCase
 import com.scallop.domain.usecases.GetWoldwideUseCase
-import com.scallop.domain.repositories.CovidRepository
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module

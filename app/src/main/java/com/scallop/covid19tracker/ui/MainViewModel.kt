@@ -3,11 +3,7 @@ package com.scallop.covid19tracker.ui
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.scallop.covid19tracker.common.BaseViewModel
-import com.scallop.covid19tracker.model.Country
-import com.scallop.covid19tracker.model.Data
-import com.scallop.covid19tracker.model.Error
-import com.scallop.covid19tracker.model.Status
-import com.scallop.covid19tracker.model.Worldwide
+import com.scallop.covid19tracker.model.*
 import com.scallop.domain.common.Mapper
 import com.scallop.domain.entities.CountryEntity
 import com.scallop.domain.entities.WorldwideEntity
@@ -36,7 +32,8 @@ class MainViewModel(
                 mWorldwideInfo.value = Data(responseType = Status.SUCCESSFUL, data = response)
             }, { error ->
                 Log.d(TAG, "On Error Called " + error.message)
-                mWorldwideInfo.value = Data(responseType = Status.ERROR, error = Error(error.message))
+                mWorldwideInfo.value =
+                    Data(responseType = Status.ERROR, error = Error(error.message))
             }, {
                 Log.d(TAG, "On Complete Called")
             })
@@ -52,7 +49,8 @@ class MainViewModel(
                 mCountriesInfo.value = Data(responseType = Status.SUCCESSFUL, data = response)
             }, { error ->
                 Log.d(TAG, "On Error Called " + error.message)
-                mCountriesInfo.value = Data(responseType = Status.ERROR, error = Error(error.message))
+                mCountriesInfo.value =
+                    Data(responseType = Status.ERROR, error = Error(error.message))
             }, {
                 Log.d(TAG, "On Complete Called")
             })

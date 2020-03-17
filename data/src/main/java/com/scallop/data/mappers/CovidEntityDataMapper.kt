@@ -1,9 +1,7 @@
 package com.scallop.data.mappers
 
-import com.scallop.domain.entities.CountryEntity
 
-
-class CovidEntityDataMapper constructor() {
+class CovidEntityDataMapper {
 
 //    fun mapToEntity(data: MovieSourcesEntity?): MovieItemSourcesData? = MovieItemSourcesData(
 //        page = data?.page,

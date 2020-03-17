@@ -53,9 +53,9 @@
                     android:id="@+id/total_cases_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:textColor="@color/colorAccent"
-                    android:textSize="14sp"
-                    android:layout_margin="5dp"/>
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -78,9 +78,9 @@
                     android:id="@+id/total_deaths_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:textColor="@color/colorAccent"
-                    android:textSize="14sp"
-                    android:layout_margin="5dp"/>
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -103,9 +103,9 @@
                     android:id="@+id/total_recovered_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:textColor="@color/colorAccent"
-                    android:textSize="14sp"
-                    android:layout_margin="5dp"/>
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -139,9 +139,9 @@
                     android:id="@+id/today_cases_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:textColor="@color/colorAccent"
-                    android:textSize="14sp"
-                    android:layout_margin="5dp"/>
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -164,9 +164,9 @@
                     android:id="@+id/today_deaths_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:textColor="@color/colorAccent"
-                    android:textSize="14sp"
-                    android:layout_margin="5dp"/>
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -200,9 +200,9 @@
                     android:id="@+id/active_cases_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:textColor="@color/colorAccent"
-                    android:textSize="14sp"
-                    android:layout_margin="5dp"/>
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -225,9 +225,9 @@
                     android:id="@+id/critical_cases_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:textColor="@color/colorAccent"
-                    android:textSize="14sp"
-                    android:layout_margin="5dp"/>
+                    android:textSize="14sp" />
 
             </LinearLayout>
 

@@ -5,7 +5,7 @@ import com.scallop.data.entitites.WorldwideData
 import com.scallop.domain.entities.CountryEntity
 import com.scallop.domain.entities.WorldwideEntity
 
-class CovidDataEntityMapper constructor() {
+class CovidDataEntityMapper {
 
     fun mapToEntity(data: List<CountryData>): List<CountryEntity> {
         return data.map {
