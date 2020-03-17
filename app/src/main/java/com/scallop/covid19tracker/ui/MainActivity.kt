@@ -14,6 +14,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class MainActivity : AppCompatActivity() {
 
     private val mMainViewModel: MainViewModel by viewModel()
+
     private lateinit var listAdapter: CountryAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {

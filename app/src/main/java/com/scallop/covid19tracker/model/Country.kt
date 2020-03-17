@@ -8,5 +8,6 @@ data class Country(
     val todayDeaths: Int,
     val recovered: Int,
     val active: Int,
-    val critical: Int
+    val critical: Int,
+    var expanded: Boolean
 )

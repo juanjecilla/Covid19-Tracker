@@ -30,12 +30,39 @@ class CountryAdapter :
 
         private lateinit var mCountry: Country
 
+        init {
+            itemView.setOnClickListener {
+                mCountry.expanded = !mCountry.expanded
+                toggleVisibility()
+            }
+        }
+
         fun bind(item: Country) {
             mCountry = item
 
             with(itemView) {
                 country_name.text = item.country
+                total_cases_value.text = item.cases.toString()
+                total_deaths_value.text = item.deaths.toString()
+                total_recovered_value.text = item.recovered.toString()
+                today_cases_value.text = item.todayCases.toString()
+                today_deaths_value.text = item.todayDeaths.toString()
+                active_cases_value.text = item.active.toString()
+                critical_cases_value.text = item.critical.toString()
             }
+
+            toggleVisibility()
+        }
+
+        private fun toggleVisibility() {
+            if (mCountry.expanded) {
+                itemView.detail_layout.visibility = View.VISIBLE
+                itemView.today_layout.visibility = View.VISIBLE
+            } else {
+                itemView.detail_layout.visibility = View.GONE
+                itemView.today_layout.visibility = View.GONE
+            }
+
         }
     }
 
