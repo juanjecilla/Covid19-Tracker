@@ -13,4 +13,8 @@
     <string name="total_cases_label">Total cases:</string>
     <string name="total_deaths_label">Deaths:</string>
     <string name="total_recovered_label">Recovered:</string>
+    <string name="active_cases_label">Active:</string>
+    <string name="critical_cases_label">Critical:</string>
+    <string name="today_deaths_label">Today deaths:</string>
+    <string name="today_cases_label">Today cases:</string>
 </resources>
