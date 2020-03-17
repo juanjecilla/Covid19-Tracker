@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.scallop.covid19tracker.R
 import com.scallop.covid19tracker.model.Country
 import kotlinx.android.synthetic.main.item_country.view.*
+import kotlin.math.exp
 
 class CountryAdapter :
     RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
@@ -30,6 +31,13 @@ class CountryAdapter :
 
         private lateinit var mCountry: Country
 
+        init {
+            itemView.setOnClickListener {
+                mCountry.expanded = !mCountry.expanded
+                toggleVisibility()
+            }
+        }
+
         fun bind(item: Country) {
             mCountry = item
 
@@ -43,6 +51,19 @@ class CountryAdapter :
                 active_cases_value.text = item.active.toString()
                 critical_cases_value.text = item.critical.toString()
             }
+
+            toggleVisibility()
+        }
+
+        private fun toggleVisibility() {
+            if (mCountry.expanded){
+                itemView.detail_layout.visibility = View.VISIBLE
+                itemView.today_layout.visibility = View.VISIBLE
+            } else{
+                itemView.detail_layout.visibility = View.GONE
+                itemView.today_layout.visibility = View.GONE
+            }
+
         }
     }
 
