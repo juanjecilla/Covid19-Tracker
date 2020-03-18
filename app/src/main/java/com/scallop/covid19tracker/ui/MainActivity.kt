@@ -1,6 +1,8 @@
 package com.scallop.covid19tracker.ui
 
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -36,13 +38,12 @@ class MainActivity : AppCompatActivity() {
         mMainViewModel.getWorldwideInfoLiveData().observe(this, Observer {
             when (it?.responseType) {
                 Status.ERROR -> {
-                    //Error handling
+                    worldwide_layout.visibility = View.GONE
                 }
                 Status.LOADING -> {
-                    //Progress
                 }
                 Status.SUCCESSFUL -> {
-                    // On Successful response
+                    worldwide_layout.visibility = View.VISIBLE
                 }
             }
             it?.data?.let { response ->
@@ -55,13 +56,13 @@ class MainActivity : AppCompatActivity() {
         mMainViewModel.getCountriesInfoLiveData().observe(this, Observer {
             when (it?.responseType) {
                 Status.ERROR -> {
-                    //Error handling
+                    progress_bar.visibility = View.GONE
                 }
                 Status.LOADING -> {
-
+                    progress_bar.visibility = View.VISIBLE
                 }
                 Status.SUCCESSFUL -> {
-                    // On Successful response
+                    progress_bar.visibility = View.GONE
                 }
             }
             it?.data?.let { response ->
