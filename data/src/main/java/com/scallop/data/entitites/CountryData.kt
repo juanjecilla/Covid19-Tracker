@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "countries")
 data class CountryData(
-    @PrimaryKey(autoGenerate = true) @SerializedName("id") var id: Long,
+    @PrimaryKey(autoGenerate = true) @SerializedName("id") var id: Long = 0,
     val country: String,
     val cases: Int,
     val todayCases: Int,

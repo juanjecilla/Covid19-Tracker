@@ -10,37 +10,27 @@ import io.reactivex.Observable
 
 class CovidCacheImpl(
     database: CovidDatabase,
-    private val entityToDataMapper: CovidEntityDataMapper,
-    private val dataToEntityMapper: CovidDataEntityMapper
+    private val mEntityToDataMapper: CovidEntityDataMapper,
+    private val mDataToEntityMapper: CovidDataEntityMapper
 ) : CovidDataSource {
 
-    private val dao: CovidDao = database.getCovidDao()
-
-//    override fun getMovieItems(): Observable<MovieSourcesEntity> {
-//        return dao.getAllArticles().map {
-//            dataToEntityMapper.mapToEntity(it)
-//        }
-//    }
-//
-//    override fun getMovieDetail(id: Long): Observable<WorldwideEntity> {
-//        return dao.getMovieDetail(id).map { dataToEntityMapper.mapToEntity(it) }
-//    }
-//
-//    fun saveArticles(it: MovieSourcesEntity) {
-//        dao.clear()
-//        dao.saveAllArticles(it.results.map { articles ->
-//            entityToDataMapper.mapArticleToEntity(
-//                articles
-//            )
-//        })
-//    }
+    private val mDao: CovidDao = database.getCovidDao()
 
     override fun getWorldwideInfo(): Observable<WorldwideEntity> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return mDao.getWorldwideInfo().map { mDataToEntityMapper.mapToEntity(it) }
     }
 
     override fun getInfoByCountry(): Observable<List<CountryEntity>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return mDao.getInfoByCountry().map { mDataToEntityMapper.mapToEntity(it) }
     }
 
+    fun setWorldwideInfo(worldwideEntity: WorldwideEntity){
+        mDao.clearWorldwideInfo()
+        mDao.setWorldwideInfo(mEntityToDataMapper.mapToData(worldwideEntity))
+    }
+
+    fun setInfoByCountry(countryEntity: List<CountryEntity>){
+        mDao.clearInfoByCountry()
+        mDao.setInfoByCountry(mEntityToDataMapper.mapToData(countryEntity))
+    }
 }

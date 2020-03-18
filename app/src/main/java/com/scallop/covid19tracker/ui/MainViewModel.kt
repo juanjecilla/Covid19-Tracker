@@ -42,10 +42,12 @@ class MainViewModel(
     }
 
     fun fetchInfoByCountry() {
+        mCountriesInfo.value = Data(responseType = Status.LOADING)
+
         val disposable = mGetCountriesUseCase.getInfoByCountry()
             .flatMap { mMapperCountries.observable(it) }
             .subscribe({ response ->
-                Log.d(TAG, "On Next Called")
+                Log.d(TAG, "On Next Called Country")
                 mCountriesInfo.value = Data(responseType = Status.SUCCESSFUL, data = response)
             }, { error ->
                 Log.d(TAG, "On Error Called " + error.message)
