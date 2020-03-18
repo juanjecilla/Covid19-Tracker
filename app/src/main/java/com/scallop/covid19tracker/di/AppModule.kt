@@ -24,10 +24,11 @@ val mRepositoryModules = module {
     single(name = "remote") { CovidRemoteImpl(api = get(API)) }
     single(name = "local") {
         CovidCacheImpl(
-            database = get(DATABASE), entityToDataMapper = CovidEntityDataMapper(),
-            dataToEntityMapper = CovidDataEntityMapper()
+            database = get(DATABASE), mEntityToDataMapper = CovidEntityDataMapper(),
+            mDataToEntityMapper = CovidDataEntityMapper()
         )
     }
+    // Removing cast breaks build
     single { CovidRepositoryImpl(remote = get("remote"), cache = get("local")) as CovidRepository }
 }
 
