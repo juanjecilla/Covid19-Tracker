@@ -1,7 +1,6 @@
 package com.scallop.covid19tracker.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -9,8 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.scallop.covid19tracker.databinding.ActivityMainBinding
 import com.scallop.covid19tracker.model.Status
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.content_main.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -27,7 +24,8 @@ class MainActivity : AppCompatActivity() {
 
         mAdapter = CountryAdapter()
 
-        mBinding.includes.countryList.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        mBinding.includes.countryList.layoutManager =
+            LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         mBinding.includes.countryList.adapter = mAdapter
 
         mMainViewModel.fetchWorldwideInfo()
@@ -40,12 +38,12 @@ class MainActivity : AppCompatActivity() {
         mMainViewModel.getWorldwideInfoLiveData().observe(this, Observer {
             when (it?.responseType) {
                 Status.ERROR -> {
-                    worldwide_layout.visibility = View.GONE
+                    mBinding.worldwideLayout.visibility = View.GONE
                 }
                 Status.LOADING -> {
                 }
                 Status.SUCCESSFUL -> {
-                    worldwide_layout.visibility = View.VISIBLE
+                    mBinding.worldwideLayout.visibility = View.VISIBLE
                 }
             }
             it?.data?.let { response ->
@@ -58,13 +56,13 @@ class MainActivity : AppCompatActivity() {
         mMainViewModel.getCountriesInfoLiveData().observe(this, Observer {
             when (it?.responseType) {
                 Status.ERROR -> {
-                    progress_bar.visibility = View.GONE
+                    mBinding.includes.progressBar.visibility = View.GONE
                 }
                 Status.LOADING -> {
-                    progress_bar.visibility = View.VISIBLE
+                    mBinding.includes.progressBar.visibility = View.VISIBLE
                 }
                 Status.SUCCESSFUL -> {
-                    progress_bar.visibility = View.GONE
+                    mBinding.includes.progressBar.visibility = View.GONE
                 }
             }
             it?.data?.let { response ->
