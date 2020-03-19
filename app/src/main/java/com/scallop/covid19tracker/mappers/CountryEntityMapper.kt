@@ -15,7 +15,8 @@ class CountryEntityMapper : Mapper<List<CountryEntity>, List<Country>>() {
                 todayDeaths = it.todayDeaths,
                 recovered = it.recovered,
                 active = it.active,
-                critical = it.critical
+                critical = it.critical,
+                expanded = false
             )
         }
     }

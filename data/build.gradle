@@ -34,17 +34,22 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0-alpha03'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation rootProject.ext.rxJava
-    implementation rootProject.ext.retrofit
-    implementation rootProject.ext.retrofitGsonConverter
-    implementation rootProject.ext.room
-    implementation rootProject.ext.rxRoom
-    kapt 'androidx.room:room-compiler:2.2.4'
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJava"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitGsonConverter"
+    implementation "androidx.room:room-runtime:$rootProject.ext.room"
+    implementation "androidx.room:room-rxjava2:$rootProject.ext.room"
+    kapt "androidx.room:room-compiler:$rootProject.ext.room"
 
-    testImplementation rootProject.ext.junit
-    testImplementation rootProject.ext.mockito
-    androidTestImplementation rootProject.ext.androidTestRunner
+    testImplementation "junit:junit:$rootProject.ext.junit"
+    testImplementation "org.mockito:mockito-core:$rootProject.ext.mockito"
     testImplementation 'androidx.room:room-testing:2.2.4'
+
+    androidTestImplementation 'androidx.test:core:1.2.0'
+
+    // AndroidJUnitRunner and JUnit Rules
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
 
     implementation project(":domain")
 }

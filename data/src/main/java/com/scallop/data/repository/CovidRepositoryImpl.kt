@@ -11,12 +11,21 @@ class CovidRepositoryImpl(
     private val cache: CovidCacheImpl
 ) : CovidRepository {
 
-
     override fun getWorldwideInfo(): Observable<WorldwideEntity> {
-        return remote.getWorldwideInfo()
+        val remoteResults = remote.getWorldwideInfo()
+
+        return cache.getWorldwideInfo().mergeWith(remoteResults.doOnNext {
+            cache.setWorldwideInfo(it)
+        })
     }
 
     override fun getInfoByCountry(): Observable<List<CountryEntity>> {
-        return remote.getInfoByCountry()
+        val remoteResults = remote.getInfoByCountry()
+
+        return cache.getInfoByCountry().mergeWith(remoteResults.doOnNext {
+            if (it.isNotEmpty()) {
+                cache.setInfoByCountry(it)
+            }
+        })
     }
 }

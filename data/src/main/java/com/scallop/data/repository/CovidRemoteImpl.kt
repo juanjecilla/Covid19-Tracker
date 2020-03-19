@@ -17,6 +17,7 @@ class CovidRemoteImpl constructor(private val api: CovidApi) : CovidDataSource {
 
     override fun getInfoByCountry(): Observable<List<CountryEntity>> {
         return api.getInfoByCountry().map {
-            mMapper.mapToEntity(it) }
+            mMapper.mapToEntity(it)
+        }
     }
 }

@@ -12,9 +12,9 @@ import com.scallop.data.mappers.CovidEntityDataMapper
 import com.scallop.data.repository.CovidCacheImpl
 import com.scallop.data.repository.CovidRemoteImpl
 import com.scallop.data.repository.CovidRepositoryImpl
+import com.scallop.domain.repositories.CovidRepository
 import com.scallop.domain.usecases.GetCountriesUseCase
 import com.scallop.domain.usecases.GetWoldwideUseCase
-import com.scallop.domain.repositories.CovidRepository
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
@@ -24,10 +24,11 @@ val mRepositoryModules = module {
     single(name = "remote") { CovidRemoteImpl(api = get(API)) }
     single(name = "local") {
         CovidCacheImpl(
-            database = get(DATABASE), entityToDataMapper = CovidEntityDataMapper(),
-            dataToEntityMapper = CovidDataEntityMapper()
+            database = get(DATABASE), mEntityToDataMapper = CovidEntityDataMapper(),
+            mDataToEntityMapper = CovidDataEntityMapper()
         )
     }
+    // Removing cast breaks build
     single { CovidRepositoryImpl(remote = get("remote"), cache = get("local")) as CovidRepository }
 }
 
