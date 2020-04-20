@@ -18,5 +18,5 @@ Android app that shows the current status of the global pandemic of Covid-19. Da
 
 
 ## Screenshots
-![Screenshot1](https://github.com/juanjecilla/Covid19-Tracker/master/screenshots/screenshot1.png)
-![Screenshot2](https://github.com/juanjecilla/Covid19-Tracker/master/screenshots/screenshot2.png)
+![Screenshot1](https://raw.githubusercontent.com/juanjecilla/Covid19-Tracker/master/screenshots/screenshot1.png)
+![Screenshot2](https://raw.githubusercontent.com/juanjecilla/Covid19-Tracker/master/screenshots/screenshot2.png)
