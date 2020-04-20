@@ -1,29 +1,22 @@
-# README #
+# Covid-19 Tracker #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Android app that shows the current status of the global pandemic of Covid-19. Data extracted from [covidAPI](https://github.com/javieraviles/covidAPI).
 
-### What is this repository for? ###
+## Development
+- Fully developed in Kotlin.
+- Clean Architecture
+- SOLID principles.
+- AndroidX
+- Libraries:
+	+ Room
+	+ Retrofit
+	+ Koin
+	+ RxJava
+	+ LeakCanary
+	+ BottomNavigationViewEx
+	+ Mock
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+## Screenshots
+![Screenshot1](https://github.com/juanjecilla/Covid19-Tracker/master/screenshots/screenshot1.png)
+![Screenshot2](https://github.com/juanjecilla/Covid19-Tracker/master/screenshots/screenshot2.png)
